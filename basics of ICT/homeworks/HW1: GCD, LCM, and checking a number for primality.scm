@@ -1,0 +1,16 @@
+(define (my-gcd a b)
+  (set! a (abs a))
+  (set! b (abs b))
+  (if (and (> a 0) (> b 0))
+      (if (>= a b)
+          (my-gcd (remainder a b) b)
+          (my-gcd a (remainder b a)))
+      (max a b)))
+
+(define (my-lcm a b)
+  (/ (* a b) (my-gcd a b)))
+
+(define (prime? n . i)
+  (if (null? i)
+      (or (= n 1) (= n 2) (and (not (= (remainder n 2) 0)) (prime? n 3)))
+      (or (> (car i) (sqrt n)) (and (not (= (remainder n (car i)) 0)) (prime? n (+ (car i) 1))))))

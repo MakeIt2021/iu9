@@ -1,0 +1,4 @@
+apple 10
+banana 2
+Cherry 5
+date 7
